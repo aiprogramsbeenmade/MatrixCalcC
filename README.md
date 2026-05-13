@@ -39,5 +39,5 @@ gcc main.c algebra.c menumatrix.c menusystem.c -o main
 ./main
 ```
 ---
-# ⚖️ Licensa
+# ⚖️ Licenza
 Il progetto è sotto licenza MIT, consultare il file `LICENSE` per ulteriori dettagli.
