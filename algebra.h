@@ -1,20 +1,21 @@
 #ifndef ALGEBRA_H
 #define ALGEBRA_H
 
-extern int RIGHE;
-extern int COLONNE;
-
-void stampaMatrixint(int matrice[RIGHE][COLONNE]);
-void stampaMatrixfloat(float matrice[RIGHE][COLONNE]);
-void prodottoRxC(int matrix1[RIGHE][COLONNE], int matrix2[RIGHE][COLONNE]);
-void trasp(int matrix1[RIGHE][COLONNE]);
-void defMatrix(int matrix[RIGHE][COLONNE]);
-void resetMatrix(int matrix[RIGHE][COLONNE]);
-int traccia(int matrix[RIGHE][COLONNE]);
-float determinanteGauss(int matrix[RIGHE][COLONNE]);
-float detM3x3(int matrix[RIGHE][COLONNE]);
-float detM2x2(int matrix[RIGHE][COLONNE]);
-void triang(float tempMatrix[RIGHE][COLONNE]);
-int get_rank(int originalMatrix[RIGHE][COLONNE]);
-
+void stampaMatrix(int r, int c, float matrice[r][c]);
+void prodottoRxC(int r, int c, float matrix1[r][c], float matrix2[r][c]);
+void trasp(int r, int c, float matrix1[r][c]);
+void defMatrix(int r, int c, float matrix[r][c]);
+void resetMatrix(int r, int c, float matrix[r][c]);
+int traccia(int r, int c, float matrix[r][c]);
+float determinanteGauss(int r, int c, float matrix[r][c]);
+float detM3x3(int r, int c, float matrix[r][c]);
+float detM2x2(int r, int c, float matrix[r][c]);
+void triang(int r, int c, float tempMatrix[r][c]);
+int get_rank(int r, int c, float originalMatrix[r][c]);
+void cls();
+void matcompleta(int r, int c, int cb, float A[r][c], float b[r][cb], float B[r][c+1]);
+int calcolaDet(int r, int c, float matrix[r][c]);
+void eguaglia(int r, int c, float mat1[r][c], float mat2[r][c]);
+void risCramer(int r, int c, int cb, float A[r][c], float b[r][cb]);
+void risOpElem(int r, int c, float A[r][c], float B[r][c+1]);
 #endif
