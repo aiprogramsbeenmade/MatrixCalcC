@@ -184,7 +184,11 @@ int get_rank(int r, int c, float originalMatrix[r][c]) {
 // So che non c'entra nulla ma è l'unica libreria che importo ovunque e mi faceva comodo averla qui
 
 void cls() {
-        system("clear");
+        #ifdef _WIN32
+                system("cls");
+        #else
+                system("clear");
+        #endif
 }
 
 
