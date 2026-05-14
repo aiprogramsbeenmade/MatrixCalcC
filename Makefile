@@ -1,4 +1,4 @@
-TARGET = main
+TARGET = MatrixCalcC
 CC = gcc
 CFLAGS = -Wall -Iinclude
 
