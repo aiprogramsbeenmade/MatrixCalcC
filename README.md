@@ -45,5 +45,11 @@ make
 ./MatrixCalcC
 ```
 
+# 💾 Versioni
+
+- Versione 1.0.
+- Versione 2.0: Agginto supporto Windows, miglioramenti delle prestazioni.
+- Versione 2.5: Conversione del file verso l'utilizzo delle `struct` invece di array.
+
 # ⚖️ Licenza
 Il progetto è sotto licenza MIT, consultare il file `LICENSE` per ulteriori dettagli.
