@@ -1,27 +1,27 @@
 #include <stdio.h>
-#include "menusystem.h"
-#include "algebra.h"
+#include "../lib/menusystem.h"
+#include "../lib/algebra.h"
+
+Matrice m;
 
 
 void Sysmenu() {
     cls();
-    int inc;
-    int eq;
-    int r;
-    int c;
-    int cb = 1;
 
     printf("A quante incognite è il sistema? ");
-    scanf("%d", &inc);
+    scanf("%d", &m.c);
     printf("A quante equazioni ha il sistema? ");
-    scanf("%d", &eq);
+    scanf("%d", &m.r);
 
-    c = inc;
-    r = eq;
+    Matrice A = m;
+    Matrice b;
+    Matrice B;
 
-    float A[eq][inc];
-    float b[eq][cb];
-    float B[eq][inc+1];
+    b.r = m.r;
+    b.c = 1;
+
+    B.r = m.r;
+    B.c = m.c + 1;
 
 
     int definedA = 0;
@@ -35,7 +35,7 @@ void Sysmenu() {
         printf("2. Trova Matrice Completa\n");
         printf("99. Resetta Variabili e Matrici\n");
         printf("0. Esci\n");
-        scanf("%d",&scelta);
+        scelta = scanfcls("Scelta: ");
 
         switch (scelta) {
 
@@ -51,27 +51,27 @@ void Sysmenu() {
 
                 if (definedA == 0) {
                     printf("Definisci la matrice A (coefficienti): \n");
-                    defMatrix(eq, inc, A);
+                    defMatrix(&A);
                     printf("\n\nA:\n");
-                    stampaMatrix(eq, inc, A);
+                    stampaMatrix(A);
                     definedA = 1;
                 }
 
                 if (definedb == 0) {
                     printf("Definisci la matrice b (risultati): \n");
-                    defMatrix(eq, cb, b);
+                    defMatrix(&b);
                     printf("\n\nb:\n");
-                    stampaMatrix(eq, cb, b);
+                    stampaMatrix(b);
                     definedb = 1;
                 }
 
-                matcompleta(r, c, cb, A, b, B);
+                matcompleta(A, b, &B);
 
                 if (s == 1) {
-                    risOpElem(r, c, A, B);
+                    risOpElem(A, B);
                 }
                 if (s == 2) {
-                    risCramer(r, c, cb, A, b);
+                    risCramer(A, b);
                 }
                 break;
             }
@@ -79,29 +79,29 @@ void Sysmenu() {
             case 2:
                 if (definedA == 0) {
                     printf("Definisci la matrice A (coefficienti): \n");
-                    defMatrix(eq, inc, A);
+                    defMatrix(&A);
                     printf("\n\nA:\n");
-                    stampaMatrix(eq, inc, A);
+                    stampaMatrix(A);
                     definedA = 1;
                 }
 
                 if (definedb == 0) {
                     printf("Definisci la matrice b (risultati): \n");
-                    defMatrix(eq, cb, b);
+                    defMatrix(&b);
                     printf("\n\nb:\n");
-                    stampaMatrix(eq, cb, b);
+                    stampaMatrix(b);
                     definedb = 1;
                 }
 
-                matcompleta(r, c, cb, A, b, B);
+                matcompleta(A, b, &B);
                 printf("B:\n");
-                stampaMatrix(r, c+1, B);
+                stampaMatrix(B);
                 break;
 
             case 99:
-                resetMatrix(r, c, A);
-                resetMatrix(r,c, b);
-                resetMatrix(r, c+1, B);
+                resetMatrix(&A);
+                resetMatrix(&b);
+                resetMatrix(&B);
 
                 definedA = 0;
                 definedb = 0;
@@ -109,9 +109,19 @@ void Sysmenu() {
                 cls();
                 printf("Tutte le variabili e matrici resettate!\n\n");
                 printf("Ridefinisci a quante incognite è il sistema? ");
-                scanf("%d", &inc);
+                scanf("%d", &m.c);
                 printf("Ridefinisci a quante equazioni ha il sistema? ");
-                scanf("%d", &eq);
+                scanf("%d", &m.r);
+
+                A.r = m.r;
+                A.c = m.c;
+
+                b.r = m.r;
+                b.c = 1;
+
+                B.r = m.r;
+                B.c = m.c + 1;
+
                 cls();
                 break;
 

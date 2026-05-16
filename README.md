@@ -32,7 +32,7 @@ git clone https://github.com/aiprogramsbeenmade/MatrixCalcC.git
 ```
 2. **Compila il progetto:**
 ```bash
-gcc main.c algebra.c menumatrix.c menusystem.c -o MatrixCalcC
+gcc main.c src/algebra.c src/menumatrix.c src/menusystem.c -o MatrixCalcC
 ```
 oppure:
 

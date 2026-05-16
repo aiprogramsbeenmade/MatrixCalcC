@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "algebra.h"
-#include "menumatrix.h"
-#include "menusystem.h"
+#include "lib/algebra.h"
+#include "lib/menumatrix.h"
+#include "lib/menusystem.h"
 
 
 
@@ -14,7 +13,7 @@ int main(){
 		printf("1. Matrici\n");
 		printf("2. Sistemi Lineari\n");
 		printf("0. Esci\n");
-		scanf("%d",&s);
+		s = scanfcls("Scelta: ");
 		switch (s) {
 			case 1:
 				Mmenu();
